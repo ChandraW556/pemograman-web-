@@ -31,6 +31,8 @@
         <input class="inputan" type="password" name="password">
         <input class="tombol" type="submit" name="tombolSubmit" value="Login">
         <a href="registrasi.php" class="tombol">Registrasi</a>
+        
     </form>
 </body>
 </html>
+
