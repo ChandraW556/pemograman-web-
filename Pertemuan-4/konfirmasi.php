@@ -22,7 +22,10 @@
     <br>
     email: <?php echo $email ?>
 <?php
-    }
+   }
+   else{
+    echo "Mohon maaf konfirmasi tidak bs diakses langsung";
+   }
 ?>
 </body>
 </html>
