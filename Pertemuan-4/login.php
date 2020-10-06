@@ -21,7 +21,7 @@
             cursor: pointer;
         }
     </style>
-</head>
+</head> 
 <body>
     <p>Login System</p>
     <form method="post" action="ceklogin.php">
