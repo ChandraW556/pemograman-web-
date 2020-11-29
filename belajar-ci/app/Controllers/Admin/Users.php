@@ -33,7 +33,8 @@
             $data=[
                 'name'=>$this->request->getVar('name'),
                 'email'=>$this->request->getVar('email'),
-                'contact_no'=>$this->request->getVar('contact_no'),
+                'contact_no' => $this->request->getVar('contact_no'),
+                'password'=>password_hash($this->request->getVar('password'),PASSWORD_DEFAULT),
             ];
             $save=$model->insert($data);
 
@@ -51,7 +52,8 @@
             $data=[
                 'name'=>$this->request->getVar('name'),
                 'email'=>$this->request->getVar('email'),
-                'contact_no'=>$this->request->getVar('contact_no')
+                'contact_no' => $this->request->getVar('contact_no'),
+                'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
             ];
             $save=$model->update($id,$data);
 

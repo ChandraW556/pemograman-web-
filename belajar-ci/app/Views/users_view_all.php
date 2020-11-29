@@ -20,15 +20,21 @@
             <!-- Sidebar Holder -->
             <nav id="sidebar">
                 <div class="sidebar-header">
-                    <h3>Bootstrap Animated Sidebar</h3>
+                    <h3>Portal Berita</h3>
                 </div>
                 <ul class="list-unstyled components">
                     <p>Welcome</p>
-                    <li>
-                        <a href="<?= base_url('admin/users/index')?>">Home</a>
-                    </li>   
                     <li class="active">
-                        <a href="<?= base_url('admin/users/user')?>">List User</a>
+                        <a href="<?= base_url('admin/users/index')?>">Home</a>
+                    </li>
+                    <li>
+                        <a href="<?= base_url('admin/users/user')?>">Master User</a>
+                    </li>
+                    <li>
+                        <a href="<?= base_url('admin/pages/hal')?>">Master Halaman</a>
+                    </li>
+                     <li>
+                        <a href="<?= base_url('admin/news/brt')?>">Master Berita</a>
                     </li>
                 </ul>
             </nav>
@@ -54,27 +60,31 @@
                         <div class="col-sm-12">
                             <table class="table table-striped" id="tableuser">
                                 <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Nama</th>
-                                        <th>Email</th>
-                                        <th>No Contact</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php if($users): ?>
-                                    <?php foreach ($users as $pengguna): ?>
-                                    <tr>
-                                        <td><?= $pengguna['id']; ?></td>
-                                        <td><?= $pengguna['name']; ?></td>
-                                        <td><?= $pengguna['email']; ?></td>
-                                        <td><?= $pengguna['contact_no']; ?></td>
-                                        <td>
-                                            <a href="<?= base_url('admin/users/edit/'.$pengguna['id']);?>" class="btn btn-success">Edit</a>
-                                            <a href="<?= base_url('admin/users/delete/'.$pengguna['id']);?>" class="btn btn-danger">Delete</a>
-                                        </td>
-                                    </tr>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nama</th>
+                                    <th>Email</th>
+                                    <th>No Contact</th>
+                                    <th>Password </th>
+                                    <th>Record data </th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php if ($users) : ?>
+                                    <?php foreach ($users as $pengguna) : ?>
+                                        <tr>
+                                            <td><?= $pengguna['id']; ?></td>
+                                            <td><?= $pengguna['name']; ?></td>
+                                            <td><?= $pengguna['email']; ?></td>
+                                            <td><?= $pengguna['contact_no']; ?></td>
+                                            <td><?= $pengguna['password']; ?></td>
+                                            <td><?= $pengguna['created_at']; ?></td>
+                                            <td>
+                                                <a href="<?= base_url('admin/users/edit/' . $pengguna['id']); ?>" class="btn btn-success">Edit</a>
+                                                <a href="<?= base_url('admin/users/delete/' . $pengguna['id']); ?>" class="btn btn-danger">Delete</a>
+                                            </td>
+                                        </tr>
                                     <?php endforeach; ?>
                                     <?php endif; ?>
                                 </tbody>

@@ -19,15 +19,21 @@
             <!-- Sidebar Holder -->
             <nav id="sidebar">
                 <div class="sidebar-header">
-                    <h3>Bootstrap Animated Sidebar</h3>
+                    <h3>Portal Berita</h3>
                 </div>
                 <ul class="list-unstyled components">
                     <p>Welcome</p>
-                    <li>
+                    <li class="active">
                         <a href="<?= base_url('admin/users/index')?>">Home</a>
                     </li>
-                    <li class="active">
-                        <a href="<?= base_url('admin/users/user')?>">List User</a>
+                    <li>
+                        <a href="<?= base_url('admin/users/user')?>">Master User</a>
+                    </li>
+                    <li>
+                        <a href="<?= base_url('admin/pages/hal')?>">Master Halaman</a>
+                    </li>
+                     <li>
+                        <a href="<?= base_url('admin/news/brt')?>">Master Berita</a>
                     </li>
                 </ul>
             </nav>
@@ -71,6 +77,13 @@
                                     <br>
                                     <input type="text" name="contact_no" class="form-control" id="contact_no" placeholder="Masukkan Nomor Contact"
                                     value="<?= $user['contact_no'] ?>">
+                                    <br>
+                                </div>
+                                 <div class="form-grup">
+                                    <label for="contact">Password</label>
+                                    <br>
+                                    <input type="text" name="password" class="form-control" id="password" placeholder="Masukkan Nomor Contact"
+                                    value="<?= $user['password'] ?>">
                                     <br>
                                 </div>
                                 <div class="form-grup">

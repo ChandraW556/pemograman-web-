@@ -12,23 +12,19 @@
         <!-- Font Awesome JS -->
         <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
         <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
-        <style>
-  .fakeimg {
-    height: 200px;
-    background: #aaa;
-  }
-  </style>
+        <!-- Datatables -->
+        <link rel="stylesheet" href="cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
     </head>
     <body>
         <div class="wrapper">
             <!-- Sidebar Holder -->
             <nav id="sidebar">
                 <div class="sidebar-header">
-                    <h3>Portal Berita </h3>
+                    <h3>Portal Berita</h3>
                 </div>
                 <ul class="list-unstyled components">
                     <p>Welcome</p>
-                   <li class="active">
+                    <li class="active">
                         <a href="<?= base_url('admin/users/index')?>">Home</a>
                     </li>
                     <li>
@@ -55,74 +51,59 @@
                         <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <i class="fas fa-align-justify"></i>
                         </button>
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="nav navbar-nav ml-auto">
-                               <li class="nav-item active">
-                                    <a class="nav-link" href="<?= base_url('admin/users/index')?>">Home </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="<?= base_url('admin/users/user')?>">Master User</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="<?= base_url('admin/pages/hal')?>">Master Halaman</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="<?= base_url('admin/news/brt')?>">Master Berita</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link"  href="<?= base_url('admin/login/logout')?>">Logout</a>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                 </nav>
-               <div class="container" style="margin-top:30px">
-  <div class="row">
-    <div class="col-sm-4">
-      <h2>About Me</h2>
-      <h5>Photo of me:</h5>
-      <div class="fakeimg">Fake Image</div>
-      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-      <h3>Some Links</h3>
-      <p>Lorem ipsum dolor sit ame.</p>
-      <ul class="nav nav-pills flex-column">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Active</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-      </ul>
-      <hr class="d-sm-none">
-    </div>
-    <div class="col-sm-8">
-      <h2>TITLE HEADING</h2>
-      <h5>Title description, Dec 7, 2017</h5>
-      <div class="fakeimg">Fake Image</div>
-      <p>Some text..</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-      <br>
-      <h2>TITLE HEADING</h2>
-      <h5>Title description, Sep 2, 2017</h5>
-      <div class="fakeimg">Fake Image</div>
-      <p>Some text..</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-    </div>
-  </div>
-</div>
-
+                <div class="container mt-5">
+                    <h2> List Berita </h2>   
+                    <a href="<?= base_url('admin/news/create')?>" class="btn btn-success mb-2">Add News</a>
+                    <div class="row mt-3">
+                        <div class="col-sm-12">
+                            <table class="table table-striped" id="tableuser">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Judul Berta</th>
+                                        <th>Author</th>
+                                        <th>Tanggal Posting</th>
+                                        <th>Foto</th>
+                                        <th>Isi Berita</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php if($berita): ?>
+                                    <?php foreach ($berita as $news): ?>
+                                    <tr>
+                                        <td><?= $news['id']; ?></td>
+                                        <td><?= $news['judul']; ?></td>
+                                        <td><?= $news['author']; ?></td>
+                                        <td><?= $news['tglposting']; ?></td>
+                                        <td><?= $news['foto']; ?></td>
+                                        <td><?= $news['isiberita']; ?></td>
+                                        <td>
+                                            <a href="<?= base_url('admin/news/edit/'.$news['id']);?>" class="btn btn-success">Edit</a>
+                                            <a href="<?= base_url('admin/news/delete/'.$news['id']);?>" class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                    <?php endforeach; ?>
+                                    <?php endif; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- jQuery CDN - Slim version (=without AJAX) -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <!-- Popper.JS -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
         <!-- Bootstrap JS -->
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+        <script src="cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" type="text/javascript"></script>
         <script type="text/javascript">
             $(document).ready(function () {
                 $('#sidebarCollapse').on('click', function () {
@@ -130,6 +111,11 @@
                     $(this).toggleClass('active');
                 });
             });
+        </script>
+        <script>
+            $(document).ready( function () {
+                $('#tableuser').DataTable();
+            } );
         </script>
     </body>
 </html>

@@ -19,15 +19,21 @@
             <!-- Sidebar Holder -->
             <nav id="sidebar">
                 <div class="sidebar-header">
-                    <h3>Bootstrap Animated Sidebar</h3>
+                    <h3>Portal Berita</h3>
                 </div>
                 <ul class="list-unstyled components">
                     <p>Welcome</p>
-                    <li>
+                   <li class="active">
                         <a href="<?= base_url('admin/users/index')?>">Home</a>
                     </li>
-                    <li class="active">
-                        <a href="<?= base_url('admin/users/user')?>">List User</a>
+                    <li>
+                        <a href="<?= base_url('admin/users/user')?>">Master User</a>
+                    </li>
+                    <li>
+                        <a href="<?= base_url('admin/pages/hal')?>">Master Halaman</a>
+                    </li>
+                     <li>
+                        <a href="<?= base_url('admin/news/brt')?>">Master Berita</a>
                     </li>
                 </ul>
             </nav>
@@ -52,26 +58,32 @@
                             <h3>Add User</h3>
                             <form action="<?= base_url('admin/users/store'); ?>" method="POST">
                                 <div class="form-grup">
-                                    <label for="name">Nama</label>
-                                    <br>
-                                    <input type="text" name="name" class="form-control" id="name" placeholder="Masukkan Nama">
-                                    <br>
-                                </div>
-                                <div class="form-grup">
-                                    <label for="email">Email</label>
-                                    <br>
-                                    <input type="text" name="email" class="form-control" id="email" placeholder="Masukkan Email">
-                                    <br>
-                                </div>
-                                <div class="form-grup">
-                                    <label for="email">Nomor Contact</label>
-                                    <br>
-                                    <input type="text" name="contact_no" class="form-control" id="contact_no" placeholder="Masukkan Nomor Contact">
-                                    <br>
-                                </div>
-                                <div class="form-grup">
+                                <label for="name">Nama</label>
+                                <br>
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Masukkan Nama">
+                                <br>
+                            </div>
+                            <div class="form-grup">
+                                <label for="email">Email</label>
+                                <br>
+                                <input type="text" name="email" class="form-control" id="email" placeholder="Masukkan Email">
+                                <br>
+                            </div>
+                            <div class="form-grup">
+                                <label for="email">Nomor Contact</label>
+                                <br>
+                                <input type="text" name="contact_no" class="form-control" id="contact_no" placeholder="Masukkan Nomor Contact">
+                                <br>
+                            </div>
+                            <div class="form-grup">
+                                <label for="email">Password</label>
+                                <br>
+                                <input type="password" name="password" class="form-control" id="password" placeholder="Masukkan Password">
+                                <br>
+                            </div>
+                                <div class="form-grup pt-4">
                                     <button type="submit" id="send_form" class="btn btn-success">Submit</button>
-                                    <a href="<?= base_url('admin/users/user')?>" class="btn btn-danger">Close</a>
+                                    <a href="<?= base_url('admin/users/user') ?>" class="btn btn-danger">Close</a>
                                 </div>
                             </form>
                         </div>
